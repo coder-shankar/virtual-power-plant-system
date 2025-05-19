@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: virtual-power-plant-system
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: shankarghimire
+    password: 1997
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          batch_size=100:
+
+  threads:
+    virtual:
+      enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.yourpackage: DEBUG
+  file:
+    name: logs/app.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %logger{50} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %logger{50} - %msg%n"
