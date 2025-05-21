@@ -11,6 +11,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldNameConstants;
+
 
 
 @Data
@@ -18,6 +20,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@FieldNameConstants
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "battery",
         indexes = {

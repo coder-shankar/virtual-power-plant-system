@@ -16,20 +16,20 @@ public interface BatteryRepository extends JpaRepository<Battery, Long>, JpaSpec
 
         if (criteria.startPostcode() != null && criteria.endPostcode() != null) {
             spec = spec.and((root, query, cb) ->
-                    cb.between(root.get("postcode"), criteria.startPostcode(), criteria.endPostcode()));
+                    cb.between(root.get(Battery.Fields.postcode), criteria.startPostcode(), criteria.endPostcode()));
         }
 
         if (criteria.minCapacity() != null) {
             spec = spec.and((root, query, cb) ->
-                    cb.ge(root.get("wattCapacity"), criteria.minCapacity()));
+                    cb.ge(root.get(Battery.Fields.wattCapacity), criteria.minCapacity()));
         }
 
         if (criteria.maxCapacity() != null) {
             spec = spec.and((root, query, cb) ->
-                    cb.le(root.get("wattCapacity"), criteria.maxCapacity()));
+                    cb.le(root.get(Battery.Fields.wattCapacity), criteria.maxCapacity()));
         }
 
-        return findAll(spec, Sort.by(Sort.Order.asc("name").ignoreCase())
+        return findAll(spec, Sort.by(Sort.Order.asc(Battery.Fields.name).ignoreCase())
         );
     }
 

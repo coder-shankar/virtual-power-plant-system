@@ -9,10 +9,8 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 @Component
 public class ApiTimingInterceptor implements HandlerInterceptor {
-
     private static final String START_TIME = "startTime";
     private static final Logger logger = LoggerFactory.getLogger(ApiTimingInterceptor.class);
-
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
@@ -22,11 +20,11 @@ public class ApiTimingInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
-        Long startTime = (Long) request.getAttribute(START_TIME);
+        var startTime = (Long) request.getAttribute(START_TIME);
         if (startTime != null) {
-            long duration = System.currentTimeMillis() - startTime;
-            String method = request.getMethod();
-            String uri = request.getRequestURI();
+            var duration = System.currentTimeMillis() - startTime;
+            var method = request.getMethod();
+            var uri = request.getRequestURI();
             logger.info("{} {} took {} ms", method, uri, duration);
         }
     }

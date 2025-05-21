@@ -15,16 +15,12 @@ import org.virtualpowerplant.repository.BatteryRepository;
 
 import java.util.List;
 
-
 @Service
 @RequiredArgsConstructor
 public class BatteryService {
-
-    static final Logger logger = LoggerFactory.getLogger(BatteryService.class);
-
+    private static final Logger logger = LoggerFactory.getLogger(BatteryService.class);
     private final BatteryRepository batteryRepository;
     private final BatteryMapper batteryMapper;
-
 
     @Transactional
     public List<BatteryResponseDto> registerBatteries(List<BatteryRequestDto> batteryRequests) {

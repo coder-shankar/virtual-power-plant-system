@@ -73,7 +73,6 @@ specified ranges.
 
 ```bash
   ./gradlew test
-  ./gradlew integrationTest
 ````
 
 ## Run application
@@ -119,16 +118,16 @@ Create `application-local.yml` in `src/main/resources
 ## Testing Coverage
 
 ```bash
-  ./gradlew test integrationTest jacocoMergedReport
+  ./gradlew test jacocoMergedReport
   
 ```
 
-1. **Unit Tests** (`BatteryServiceTest`)
+1. **Unit Tests**
     - Battery registration
     - Statistics calculation
     - Edge cases and validation
 
-2. **Integration Tests** (`BatteryControllerTest`)
+2. **Integration Tests**
     - API endpoint testing
     - Request/Response validation
     - Concurrent request handling
